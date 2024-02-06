@@ -301,7 +301,7 @@ class MalleableParser:
                 values = []
                 
                 while lineidx < 100 and lineidx + linenum < len(self.datalines):
-                    if re.match('.*";\s*$', self.datalines[lineidx + linenum]):
+                    if re.match(r'.*";\s*$', self.datalines[lineidx + linenum]):
                         self.logger.dbg(f'Found end of prepend/append instruction at line: {linenum+lineidx}')
 
                         longline = ''.join(self.datalines[linenum : linenum + lineidx + 1])
