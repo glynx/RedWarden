@@ -1149,7 +1149,7 @@ class ProxyRequestHandler(tornado.web.RequestHandler):
                 
                 altered = (res_body_current != res_body)
                 for k, v in origheaders.items():
-                    if origheaders[k] != res.headers[k]:
+                    if k not in res.headers or origheaders[k] != res.headers[k]:
                         #self.logger.dbg('Plugin modified response header: "{}", from: "{}" to: "{}"'.format(
                         #    k, origheaders[k], res.headers[k]))
                         altered = True
